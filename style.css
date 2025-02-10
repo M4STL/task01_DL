@@ -44,14 +44,18 @@ header{
 }
 
 .logo{
-    border: 1px solid #1b1b1b ;
-    background-color: var(--bg-color);
-    width: 130px;
+   
+    width: 150px;
     height: 80px;
 }
 .logo p{
-    color: var(--third-color);
+    font-family:'Times New Roman', Times, serif;
+    color: var(--bg-color);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
     padding: 10px;
+    box-shadow: var(--box-shadow);
 }
 .search-box input{
     width:260px;
@@ -86,21 +90,31 @@ header .btn{
 }
 /*home*/
 .home{
-    background-color: var(--third-color);
-    height: 100%;
+    background-image: url('/images/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    height: 400px;
 }
 .home-section h2{
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 600;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 80px;
 }
 .buttons{
     display: flex ;
     justify-content: center;
     align-items: center;
     margin: 50px;
+}
+.buttons i{
+    font-size: 18px;
+    margin: 3px;
 }
 .home-section .btn{
     padding: 12px 30px;
@@ -119,6 +133,7 @@ header .btn{
 }
 /*courses*/
 .course h2{
+    margin-top: 50px;
     font-size: 30px;
     font-weight: 600;
 }
@@ -137,6 +152,14 @@ header .btn{
     margin: 10px;
     border-radius: 5%;
 
+}
+.description1-img img,
+.description2-img img,
+.description3-img img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 0.3rem;
 }
 .description1-list,
 .description2-list,
@@ -157,6 +180,7 @@ header .btn{
     grid-template-columns: repeat(auto-fit,minmax(340px,auto));
 }
 .view-gallery img{
+    width: 320px;
     height: 220px;
     margin: 25px;
     border-radius: 0.3rem;
@@ -168,39 +192,84 @@ header .btn{
     justify-content: center;
     gap: 20px;
 }
-.student-video .video{
-    width: 60%;
-    height: 250px;
-    background-color: var(--third-color);
-    border-radius: 0.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.student-video .video i{
-    font-size: 60px;
-}
 .student-video h2{
     font-size: 30px;
     font-weight: 600;
 }
+.student-video .video{
+    width: 60%;
+    max-width: 600px;
+    height: 250px;
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.student-video video{
+    width: 100%;
+    height: auto;
+    border: 5px solid #333;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+
 .student-description{
     left: 10px;
+    justify-items: center;
+    align-content:center ;
 }
+
 .about-university h2{
     font-size: 30px;
     font-weight: 600;
 }
-.rotating-course{
+.rotating-carousel{
+    position: relative;
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+    margin: auto;
     justify-items: center;
     align-content:center ;
 }
-.rotating-item{
-    width: 60%;
-    height: 250px;
-    background-color: var(--third-color);
+.rotating-items{
+    position: relative;
+    width: 100%;
+    height: 100%;
     border-radius: 0.3rem;
     
+}
+.rotating-items img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3rem;
+    object-fit: cover;
+    opacity: 0;
+    animation: carouselAnimation 9s infinite;
+}
+.rotating-items img:nth-child(1){
+    animation-delay: 0s;
+}
+.rotating-items img:nth-child(2){
+    animation-delay: 3s;
+}
+.rotating-items img:nth-child(3){
+    animation-delay: 6s;
+}
+
+@keyframes carouselAnimation {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.apply-today{
+    margin: 40px;
 }
 .apply-today h2{
     font-size: 30px;
@@ -219,6 +288,7 @@ header .btn{
 .apply-today .btn-apply{
     background-color: var(--main-color);
 }
+
 /*footer*/
 .above-footer{
     background-color: var(--main-color);
@@ -226,11 +296,19 @@ header .btn{
     display: grid;
    grid-template-columns:repeat(auto-fit,minmax(150px,auto));
    gap: 30px;
-   justify-items: center;
+   
    padding: 10px 40px;
 }
+
+
 .contact-details h5{
     font-size: 16px;
+}
+.contact-details i,
+.follow-us i{
+    font-size: 16px;
+    color: var(--bg-color);
+    margin: 5px;
 }
 .quick-links h5{
     font-size: 16px;
@@ -251,8 +329,8 @@ header .btn{
     font-size: 12px;
 }
 .campus-location .location{
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     background-color: var(--third-color);
 }
 .follow-us li{
@@ -278,7 +356,9 @@ header .btn{
     justify-content: space-around;
     padding: 10px;
 }
-
+.footer-p {
+    text-align: center;
+}
 /*Responsive Design*/
 @media(max-width:1200px){
     header{
@@ -288,11 +368,12 @@ header .btn{
         padding: 12px 20px;
         margin: 10px;
     }
+
     .description1-img,
 .description2-img,
 .description3-img{
     
-    width: 100%;
+    width: 80%;
     margin: 10px;
    
 }
@@ -328,6 +409,9 @@ header .btn{
         left: 0;
         top: 50%;
         
+    }
+    .home h2{
+        padding-top: 20px;
     }
     .img-courses{
         display: flex;
